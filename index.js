@@ -3,6 +3,7 @@ import './style.css';
 
 // OBJECT DESTRUCTURING
 
+//Example 1
 const address = {
   street: 'Fairfax',
   city: 'Los Angeles',
@@ -10,8 +11,17 @@ const address = {
 };
 
 const { street, city, state: st } = address;
-
 console.log(street, city, st);
+
+//Example 2
+const person = {
+  name: 'Donovan',
+  age: 33,
+  salary: 5000,
+};
+
+const { name, age } = person;
+console.log(`${name} is ${age} years old.`);
 
 // SPREAD OPERATOR
 
