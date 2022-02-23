@@ -52,6 +52,41 @@ console.log(objectAB);
 const objectCloned = { ...objectAB };
 console.log(objectCloned);
 
+// CLASSES
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  walk() {
+    console.log(`${this.name} can walk.`);
+  }
+}
+
+const person1 = new Person('Firoza');
+console.log(person1.name);
+
+console.log(person1.walk());
+
+//INHERITTANCE
+class Student extends Person {
+  //inheriting parent class Person into child class Student.
+  constructor(name, grade) {
+    super(name); // referencing parent class Person.
+    this.grade = grade;
+  }
+
+  homework() {
+    console.log(`${this.name} of grade ${this.grade} does homework!`);
+  }
+}
+
+const student1 = new Student('Maria', 'ten');
+console.log(student1.name); // inherited from parent class Person
+console.log(student1.grade);
+console.log(student1.homework());
+console.log(student1.walk()); // inherited from parent class Person
+
 // Write Javascript code!
 const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>
