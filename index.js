@@ -94,3 +94,40 @@ appDiv.innerHTML = `<h1>JS Starter</h1>
 <p>${city}</p>
 <small>${st}</small>
 `;
+
+// Destructuring assignment in JavaScript — Part 1
+
+// Before ES6
+const task = {
+  id: 'TSK001',
+  name: 'Tiling and Flooring',
+  start_date: 1644451200000,
+  end_date: 1644969599000,
+  status: 'Completed',
+  tags: ['Tower A', '1st Floor'],
+};
+
+const startDate = task.start_date;
+const endDate = task.end_date;
+const taskStatus = task.status;
+
+console.log('Task start date: ' + startDate);
+
+// After ES6
+
+// Destructuring assignment
+// Destructuring assignment with some different variable name (name:taskName)
+const { name: taskName, status, start_date, end_date } = task;
+
+console.log(taskName + ' is ' + status);
+
+// Array Destructuring
+const tags = ['Tower A', '1st Floor', 'Tiling', 'Flooring'];
+
+//Destructuring assignment in arrays;
+//Assign default values ( tag2="Ground Floor and tag5="Tiling and Flooring")
+const [tag1, tag2 = 'Ground Floor', tag3, tag4, tag5 = 'Tiling and Flooring'] =
+  tags;
+
+console.log('I have ' + tag2 + ' and ' + tag4 + ' tasks.');
+console.log('I have ' + tag5 + ' completed.');
