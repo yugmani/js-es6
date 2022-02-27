@@ -2,6 +2,7 @@
 import './style.css';
 
 // OBJECT DESTRUCTURING
+// *************************************************
 
 //Example 1
 const address = {
@@ -24,6 +25,7 @@ const { name, age } = person;
 console.log(`${name} is ${age} years old.`);
 
 // SPREAD OPERATOR
+// *************************************************
 
 //ARRAYS
 const first = [1, 2, 3];
@@ -53,6 +55,8 @@ const objectCloned = { ...objectAB };
 console.log(objectCloned);
 
 // CLASSES
+// *************************************************
+
 class Person {
   constructor(name) {
     this.name = name;
@@ -69,6 +73,8 @@ console.log(person1.name);
 console.log(person1.walk());
 
 //INHERITTANCE
+// *************************************************
+
 class Student extends Person {
   //inheriting parent class Person into child class Student.
   constructor(name, grade) {
@@ -96,8 +102,11 @@ appDiv.innerHTML = `<h1>JS Starter</h1>
 `;
 
 // Destructuring assignment in JavaScript — Part 1
+// *************************************************
 
 // Before ES6
+// --------------------------------------
+
 const task = {
   id: 'TSK001',
   name: 'Tiling and Flooring',
@@ -114,6 +123,7 @@ const taskStatus = task.status;
 console.log('Task start date: ' + startDate);
 
 // After ES6
+// --------------------------------------
 
 // Destructuring assignment
 // Destructuring assignment with some different variable name (name:taskName)
@@ -122,6 +132,8 @@ const { name: taskName, status, start_date, end_date } = task;
 console.log(taskName + ' is ' + status);
 
 // Array Destructuring
+// --------------------------------------
+
 const tags = ['Tower A', '1st Floor', 'Tiling', 'Flooring'];
 
 //Destructuring assignment in arrays;
@@ -131,3 +143,81 @@ const [tag1, tag2 = 'Ground Floor', tag3, tag4, tag5 = 'Tiling and Flooring'] =
 
 console.log('I have ' + tag2 + ' and ' + tag4 + ' tasks.');
 console.log('I have ' + tag5 + ' completed.');
+
+// Assignment separate from declaration
+// --------------------------------------
+
+let listItems;
+
+const todos = {
+  task: 'Grocery',
+  priority: 'high',
+  listItems: ['carrot', 'pumpkin', 'noodles'],
+};
+
+// object Destructuring - separate from its declaration
+({ listItems } = todos);
+
+console.log(listItems); //["carrot", "pumpkin", "noodles"]
+
+// Swapping Variables
+// -----------------------------------------------------
+
+let todo1 = 'Yoga Exercise';
+let todo2 = 'Deposit amount in bank';
+
+[todo1, todo2] = [todo2, todo1];
+
+console.log(todo1, todo2);
+
+// Ignore values
+const todo3 = ['Dance class', 'Shopping for party', 'Gym', 'Send Email'];
+
+const [fact1, , fact2] = todo3;
+
+console.log('Fact1: ', fact1); // Dance class
+console.log('Fact2: ', fact2); // logs "Gym" but not "shopping for party"
+
+// REST OPERATOR
+// *************************************************************
+
+const listA = {
+  material: 'pencil',
+  price: '3',
+  quality: 'high',
+  needed: true,
+};
+
+const { material, price, ...restList } = listA;
+console.log(material, price); // pencil 3
+console.log(restList); // {quality: "high", needed: true}
+console.log(restList.quality); // high
+
+// Nested object and array destructuring
+// ----------------------------------------
+const song = {
+  artists: {
+    vocal: 'singerA',
+    lyrics: 'lyricistA',
+    musician: 'musicianA',
+  },
+  ranking: 4.5,
+  album: 'album1',
+  countries: ['usa', ['eng', 'aus'], 'can'],
+};
+
+const {
+  artists: { vocal, lyrics, musician },
+  countries,
+} = song;
+
+console.log(vocal); // singerA
+console.log(musician); // musicianA
+console.log(countries); // ["usa", "uk", "aus"]
+
+// nested Destructuring in countries array;
+const [country1, country2, country3] = countries;
+
+console.log(country1); // usa
+console.log(country2); // ["eng", "aus"]
+console.log(country3); // can
